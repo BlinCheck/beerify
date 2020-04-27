@@ -1,0 +1,1 @@
+This folder is for all files that are needed for mobile version of the app 

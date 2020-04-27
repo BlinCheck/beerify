@@ -1,0 +1,1 @@
+This folder is for all files that are needed for web version of the app
