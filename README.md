@@ -1,0 +1,2 @@
+# beerify
+Project for university
