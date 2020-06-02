@@ -18,5 +18,11 @@ namespace WebApplication1.Controllers
             picturePath, description);
 
         }
+        
+        [HttpGet]
+        public List<Place> ShowClosePlace(double longitude, double latitude, double radius)
+       {
+           return Place.DownLoadAllInRadius(longitude,  latitude, radius)
+        }
     }
 }
