@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Beerify</string>
+    <string name="facebook_application_id" translatable="false">687041815465601</string>
+    <string name="facebook_login_protocol_scheme" translatable="false">fb687041815465601</string>
+</resources>

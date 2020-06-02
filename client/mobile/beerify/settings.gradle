@@ -1,0 +1,2 @@
+rootProject.name='Beerify'
+include ':app'

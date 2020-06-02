@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "846576800054",
+    "firebase_url": "https://beerify-20a27.firebaseio.com",
+    "project_id": "beerify-20a27",
+    "storage_bucket": "beerify-20a27.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:846576800054:android:347b911294330de693a397",
+        "android_client_info": {
+          "package_name": "com.viktorfnp.beerify"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "846576800054-f1pevd3jut3a1somsgemuvem9jrcq3ce.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCN9qBv-fJ9a7NxH3wjV_V2USyVy5u-fNg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "846576800054-f1pevd3jut3a1somsgemuvem9jrcq3ce.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
