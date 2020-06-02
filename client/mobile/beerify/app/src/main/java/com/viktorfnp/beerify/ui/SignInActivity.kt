@@ -1,4 +1,4 @@
-package com.viktorfnp.beerify
+package com.viktorfnp.beerify.ui
 
 import android.app.Activity
 import android.content.Intent
@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
+import com.viktorfnp.beerify.R
 
 
 class SignInActivity : AppCompatActivity() {
@@ -22,6 +23,7 @@ class SignInActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        actionBar?.title = "Sign In"
 
         startActivityForResult(
             AuthUI.getInstance()
@@ -39,8 +41,8 @@ class SignInActivity : AppCompatActivity() {
             val response = IdpResponse.fromResultIntent(data)
 
             if (resultCode == Activity.RESULT_OK) {
-                Toast.makeText(baseContext, "Authorized user successfully", Toast.LENGTH_LONG)
-                    .show()
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
             } else {
                 Toast.makeText(baseContext, "Authorized failed", Toast.LENGTH_LONG).show()
             }
