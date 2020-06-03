@@ -1,8 +1,11 @@
 package com.viktorfnp.beerify.ui
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.fragment.app.FragmentActivity
 import com.viktorfnp.beerify.R
 import com.viktorfnp.beerify.presenter.MainPresenter
 import kotlinx.android.synthetic.main.main_activity_layout.*
@@ -15,11 +18,15 @@ class MainActivity : BaseActivity<MainActivity, MainPresenter>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        mainContext = applicationContext;
 
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         enableDrawerToggle()
         navigationView?.setNavigationItemSelectedListener(::onNavigationItemSelected)
+        fragmentActivity = this
+
+        presenter.onPlacesNearMapViewCreated()
     }
 
     private fun enableDrawerToggle() {
@@ -36,9 +43,23 @@ class MainActivity : BaseActivity<MainActivity, MainPresenter>() {
         articleMenuDrawerLayout.addDrawerListener(drawerToggle)
     }
 
+    fun performTransaction() {
+        Log.d("MyLog", "Performing transaction")
+        fragmentActivity?.supportFragmentManager?.run {
+            beginTransaction()
+                .add(R.id.fragmentContainer, NearbyFragment(), "Nearby tag")
+                .commitNow()
+        }
+    }
+
     private fun onNavigationItemSelected(item: MenuItem): Boolean =
         when (item.itemId) {
             R.id.nearby -> {
+                fragmentActivity?.supportFragmentManager?.run {
+                    beginTransaction()
+                        .add(R.id.fragmentContainer, NearbyFragment(), "Nearby tag")
+                        .commit()
+                }
                 true
             }
 
@@ -65,4 +86,9 @@ class MainActivity : BaseActivity<MainActivity, MainPresenter>() {
             else -> false
         }
 
+    companion object {
+
+        var mainContext: Context? = null
+        var fragmentActivity: FragmentActivity? = null;
+    }
 }

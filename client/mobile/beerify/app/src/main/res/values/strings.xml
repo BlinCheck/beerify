@@ -5,4 +5,5 @@
     <string name="viktor">Виктор</string>
     <string name="open_drawer">Drawer opened</string>
     <string name="close_drawer">Drawer closed</string>
+    <string name="title_nearby_fragment">Places nearby</string>
 </resources>
