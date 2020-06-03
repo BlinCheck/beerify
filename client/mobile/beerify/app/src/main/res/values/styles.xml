@@ -19,5 +19,9 @@
         <item name="android:textSize">20sp</item>
     </style>
 
+    <style name="MatchParent">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
 
 </resources>

@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "846576800054-0m10f86v3oms2c3vr97ljsmu7822vphd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.viktorfnp.beerify",
+            "certificate_hash": "b9188f12e716277d45d097a5eca456ae1b9aeaa3"
+          }
+        },
+        {
           "client_id": "846576800054-f1pevd3jut3a1somsgemuvem9jrcq3ce.apps.googleusercontent.com",
           "client_type": 3
         }
