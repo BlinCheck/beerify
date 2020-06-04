@@ -4,11 +4,15 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.viktorfnp.beerify.R
 import com.viktorfnp.beerify.presenter.DrinkPresenter
 import com.viktorfnp.beerify.util.Store
+import io.reactivex.Completable
+import io.reactivex.android.schedulers.AndroidSchedulers
 import kotlinx.android.synthetic.main.drink_fragment.*
+import java.util.concurrent.TimeUnit
 
 class DrinkFragment : BaseFragment<DrinkFragment, DrinkPresenter>() {
 
@@ -43,5 +47,20 @@ class DrinkFragment : BaseFragment<DrinkFragment, DrinkPresenter>() {
 
         recyclerView.adapter = commentsAdapter
         commentsAdapter.updateList(Store.selectedDrink.comments)
+
+        sendButton.setOnClickListener {
+            Store.drinksList[3].rating = 5.0
+            Store.drinksList[3].comments = Store.drinksList[3].comments.plus(Store.demoComment)
+
+            showProgress()
+            Completable
+                .complete()
+                .delay(2300, TimeUnit.MILLISECONDS)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe {
+                    hideProgress()
+                    Toast.makeText(context, "Thank you. Your comment was sent.", Toast.LENGTH_LONG).show()
+                }
+        }
     }
 }
