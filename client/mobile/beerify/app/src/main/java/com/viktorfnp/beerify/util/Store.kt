@@ -8,6 +8,72 @@ class Store {
 
     companion object {
 
+        val commentsList = mutableListOf<Comment>(
+            Comment(
+                id = "id0",
+                userName = "Виктор",
+                text = "My comment",
+                rating = 4
+            ),
+            Comment(
+                id = "id1",
+                userName = "Виктор",
+                text = "Good comment for bar",
+                rating = 5
+            ),
+            Comment(
+                id = "id2",
+                userName = "Виктор",
+                text = "Corona is good",
+                rating = 5
+            ),
+            Comment(
+                id = "id3",
+                userName = "Виктор",
+                text = "Amazing",
+                rating = 5
+            )
+        )
+
+        val drinksList = mutableListOf<Drink>(
+            Drink(
+                id = "asdasdaa",
+                creatorId = "1",
+                name = "Redds",
+                photo = "https://produkty24.com.ua/db_pic/products/original/original_1459295214.86721897125244.jpg",
+                description = "Good light ale with apple aroma",
+                rating = 0.0,
+                comments = listOf()
+            ),
+            Drink(
+                id = "asdasdasda",
+                creatorId = "1",
+                name = "Dark beer Hero",
+                photo = "https://ak.picdn.net/shutterstock/videos/28193860/thumb/1.jpg",
+                description = "Heavy black drink for real men",
+                rating = 0.0,
+                comments = listOf()
+            ),
+            Drink(
+                id = "asdqwwe",
+                creatorId = "1",
+                name = "Corona light",
+                photo = "https://products2.imgix.drizly.com/ci-corona-light-7335b19a252eb81a.jpeg?auto=format%2Ccompress&fm=jpg&q=20",
+                description = "The most popular beer during 2020 quarantine",
+                rating = 5.0,
+                comments = listOf(Store.commentsList[2])
+            ),
+            Drink(
+                id = "qwertyu",
+                creatorId = "1",
+                name = "New beer",
+                photo = "https://www.solodok.beer/images/products/kits/weizen/400.jpg",
+                description = "My new drink",
+                rating = 5.0,
+                comments = listOf(Store.commentsList[3])
+            )
+        )
+
         val placeList = mutableListOf<Place>(
             Place(
                 id = "asdf",
@@ -44,70 +110,7 @@ class Store {
             )
         )
 
-        val drinksList = mutableListOf<Drink>(
-            Drink(
-                id = "asdasdaa",
-                creatorId = "1",
-                name = "Redds",
-                photo = "https://lh3.googleusercontent.com/proxy/rk9grIrlk1kGXquAgPetQhKlscAEE50v-8GZP0YhrbqoCYrPgMIwHnipaAAQ6l_Svucv9R3YgsFg5idrjzignEEDzhfOJ3GWEnHHAzDQnM7xQShnACOLE5JhzHfA6tbPi3B6oXTd",
-                description = "Good light ale with apple aroma",
-                rating = 0.0,
-                comments = listOf()
-            ),
-            Drink(
-                id = "asdasdasda",
-                creatorId = "1",
-                name = "Dark beer Hero",
-                photo = "https://lh3.googleusercontent.com/proxy/7dHfYLZjtQXeHfk8M7d2tl2sqfoor_Z5tWwt1r1_wXCr5dbe6v3jPHlCwlwDDYqLkQRBu3J_IPbahQiRDry9h3l6Pmxz5O17oYrGAv73Qua0D5a_W9X_5brFYd2D5-cNUKuP",
-                description = "Heavy black drink for real men",
-                rating = 0.0,
-                comments = listOf()
-            ),
-            Drink(
-                id = "asdqwwe",
-                creatorId = "1",
-                name = "Corona light",
-                photo = "https://lh3.googleusercontent.com/proxy/0UCEFDaRQnz73Z7xKCaof8Ky3OJqhNJBcSDMpIKy5jh0TnD-dwXMXxtREYLW_T67XNYZyQQRJXOyFXOH5RBm34FyFFJuHcrIl-zuCR6r8HNmm1B_CorXh9rzbsaC6metK5p8ymEMkCQLd75jc924Jf7Qrg",
-                description = "The most popular beer during 2020 quarantine",
-                rating = 5.0,
-                comments = listOf(Store.commentsList[2])
-            ),
-            Drink(
-                id = "qwertyu",
-                creatorId = "1",
-                name = "New beer",
-                photo = "https://www.solodok.beer/images/products/kits/weizen/400.jpg",
-                description = "My new drink",
-                rating = 5.0,
-                comments = listOf(Store.commentsList[3])
-            )
-        )
-
-        val commentsList = mutableListOf<Comment>(
-            Comment(
-                id = "id0",
-                userName = "Виктор",
-                text = "My comment",
-                rating = 4
-            ),
-            Comment(
-                id = "id1",
-                userName = "Виктор",
-                text = "Good comment for bar",
-                rating = 5
-            ),
-            Comment(
-                id = "id2",
-                userName = "Виктор",
-                text = "Corona is good",
-                rating = 5
-            ),
-            Comment(
-                id = "id3",
-                userName = "Виктор",
-                text = "Amazing",
-                rating = 5
-            )
-        )
+        var selectedPlace: Place = placeList[2]
+        var selectedDrink: Drink = drinksList[0]
     }
 }

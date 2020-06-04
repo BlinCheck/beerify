@@ -6,4 +6,9 @@
     <string name="open_drawer">Drawer opened</string>
     <string name="close_drawer">Drawer closed</string>
     <string name="title_nearby_fragment">Places nearby</string>
+    <string name="title_place_fragment">Place details</string>
+    <string name="places_title">Places</string>
+    <string name="drinks_title">Drinks</string>
+    <string name="drink_title">Drink details</string>
+    <string name="my_place_title">My place</string>
 </resources>

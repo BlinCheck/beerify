@@ -47,35 +47,47 @@ class MainActivity : BaseActivity<MainActivity, MainPresenter>() {
         Log.d("MyLog", "Performing transaction")
         fragmentActivity?.supportFragmentManager?.run {
             beginTransaction()
-                .add(R.id.fragmentContainer, NearbyFragment(), "Nearby tag")
+                .replace(R.id.fragmentContainer, NearbyFragment())
                 .commitNow()
         }
     }
 
-    private fun onNavigationItemSelected(item: MenuItem): Boolean =
-        when (item.itemId) {
+    private fun onNavigationItemSelected(item: MenuItem): Boolean {
+        articleMenuDrawerLayout.closeDrawers()
+        return when (item.itemId) {
             R.id.nearby -> {
                 fragmentActivity?.supportFragmentManager?.run {
                     beginTransaction()
-                        .add(R.id.fragmentContainer, NearbyFragment(), "Nearby tag")
+                        .replace(R.id.fragmentContainer, NearbyFragment())
                         .commit()
                 }
                 true
             }
 
             R.id.places -> {
+                fragmentActivity?.supportFragmentManager?.run {
+                    beginTransaction()
+                        .replace(R.id.fragmentContainer, PlaceListFragment())
+                        .commit()
+                }
                 true
             }
 
             R.id.drinks -> {
+                fragmentActivity?.supportFragmentManager?.run {
+                    beginTransaction()
+                        .replace(R.id.fragmentContainer, DrinkListFragment())
+                        .commit()
+                }
                 true
             }
 
             R.id.myPlace -> {
-                true
-            }
-
-            R.id.profile -> {
+                fragmentActivity?.supportFragmentManager?.run {
+                    beginTransaction()
+                        .replace(R.id.fragmentContainer, MyPlaceFragment())
+                        .commit()
+                }
                 true
             }
 
@@ -85,6 +97,7 @@ class MainActivity : BaseActivity<MainActivity, MainPresenter>() {
 
             else -> false
         }
+    }
 
     companion object {
 

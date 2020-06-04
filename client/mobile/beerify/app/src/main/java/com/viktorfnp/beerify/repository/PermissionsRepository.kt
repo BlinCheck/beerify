@@ -12,7 +12,7 @@ class PermissionsRepository {
         RxPermissions(MainActivity.fragmentActivity!!)
             .request(*permissions)
             .flatMapCompletable {
-                if (it) Completable.complete().delay(2, TimeUnit.SECONDS)
+                if (it) Completable.complete().delay(6, TimeUnit.SECONDS)
                 else Completable.error(Exception())
             }
 }

@@ -28,7 +28,7 @@ class NearbyFragment : BaseFragment<NearbyFragment, NearbyPresenter>() {
         imageView.setOnClickListener {
             fragmentActivity?.supportFragmentManager?.run {
                 beginTransaction()
-                    .add(R.id.fragmentContainer, NearbyFragment(), "Nearby tag")
+                    .add(R.id.fragmentContainer, PlaceFragment(), "Nearby tag")
                     .commit()
             }
         }
