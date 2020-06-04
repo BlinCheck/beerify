@@ -6,7 +6,10 @@ import com.viktorfnp.beerify.R
 import com.viktorfnp.beerify.entity.Place
 import com.viktorfnp.beerify.presenter.PlaceListPresenter
 import com.viktorfnp.beerify.util.Store
+import io.reactivex.Completable
+import io.reactivex.android.schedulers.AndroidSchedulers
 import kotlinx.android.synthetic.main.item_list_fragment.*
+import java.util.concurrent.TimeUnit
 
 class PlaceListFragment : BaseFragment<PlaceListFragment, PlaceListPresenter>() {
 
@@ -28,7 +31,15 @@ class PlaceListFragment : BaseFragment<PlaceListFragment, PlaceListPresenter>() 
 
     private fun initRecyclerView() {
         itemList.adapter = adapter
-        adapter.updateList(Store.placeList.sortedBy { it.rating }.reversed())
+        showProgress()
+        Completable
+            .complete()
+            .delay(1800, TimeUnit.MILLISECONDS)
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe {
+                hideProgress()
+                adapter.updateList(Store.placeList.sortedBy { it.rating }.reversed())
+            }
     }
 
     private fun onItemClicked(data: Place) {

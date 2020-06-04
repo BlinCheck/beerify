@@ -5,11 +5,15 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.viktorfnp.beerify.R
 import com.viktorfnp.beerify.presenter.PlacePresenter
 import com.viktorfnp.beerify.util.Store
+import io.reactivex.Completable
+import io.reactivex.android.schedulers.AndroidSchedulers
 import kotlinx.android.synthetic.main.place_details_fragment.*
+import java.util.concurrent.TimeUnit
 
 
 class PlaceFragment : BaseFragment<PlaceFragment, PlacePresenter>() {
@@ -45,5 +49,26 @@ class PlaceFragment : BaseFragment<PlaceFragment, PlacePresenter>() {
 
         recyclerView.adapter = commentAdapter
         commentAdapter.updateList(Store.selectedPlace.comments)
+
+        drinksBtn.setOnClickListener {
+            Store.selectedDrinks = Store.selectedPlace.drinks
+            MainActivity.fragmentActivity?.supportFragmentManager?.run {
+                beginTransaction()
+                    .replace(R.id.fragmentContainer, DrinkListFragment())
+                    .commit()
+            }
+        }
+
+        sendButton.setOnClickListener {
+            showProgress()
+            Completable
+                .complete()
+                .delay(2500, TimeUnit.MILLISECONDS)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe {
+                    hideProgress()
+                    Toast.makeText(context, "Thank you. Your comment was sent.", Toast.LENGTH_LONG).show()
+                }
+        }
     }
 }

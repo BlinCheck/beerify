@@ -30,7 +30,7 @@ class Store {
             Comment(
                 id = "id3",
                 userName = "Виктор",
-                text = "Amazing",
+                text = "amazing",
                 rating = 5
             )
         )
@@ -69,8 +69,8 @@ class Store {
                 name = "New beer",
                 photo = "https://www.solodok.beer/images/products/kits/weizen/400.jpg",
                 description = "My new drink",
-                rating = 5.0,
-                comments = listOf(Store.commentsList[3])
+                rating = 0.0,
+                comments = listOf()
             )
         )
 
@@ -112,5 +112,8 @@ class Store {
 
         var selectedPlace: Place = placeList[2]
         var selectedDrink: Drink = drinksList[0]
+        var selectedDrinks: List<Drink> = drinksList;
+
+        var demoComment = commentsList[3]
     }
 }
